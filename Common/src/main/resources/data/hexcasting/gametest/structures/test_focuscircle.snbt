@@ -1,0 +1,52 @@
+{
+    DataVersion: 3465,
+    size: [4, 3, 3],
+    data: [
+        {pos: [0, 0, 0], state: "minecraft:polished_andesite"},
+        {pos: [0, 0, 1], state: "minecraft:polished_andesite"},
+        {pos: [0, 0, 2], state: "minecraft:polished_andesite"},
+        {pos: [1, 0, 0], state: "minecraft:polished_andesite"},
+        {pos: [1, 0, 1], state: "minecraft:polished_andesite"},
+        {pos: [1, 0, 2], state: "minecraft:polished_andesite"},
+        {pos: [2, 0, 0], state: "minecraft:polished_andesite"},
+        {pos: [2, 0, 1], state: "minecraft:polished_andesite"},
+        {pos: [2, 0, 2], state: "minecraft:polished_andesite"},
+        {pos: [3, 0, 0], state: "minecraft:polished_andesite"},
+        {pos: [3, 0, 1], state: "minecraft:polished_andesite"},
+        {pos: [3, 0, 2], state: "minecraft:polished_andesite"},
+        {pos: [0, 1, 0], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {angles: [B; 1B, 4B, 5B, 0B, 5B, 4B, 1B], start_dir: 3b}}},
+        {pos: [0, 1, 1], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {angles: [B; 5B, 5B, 5B, 5B, 5B, 1B, 2B], start_dir: 5b}}},
+        {pos: [0, 1, 2], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {angles: [B; 0B, 4B, 4B, 0B], start_dir: 0b}}},
+        {pos: [1, 1, 0], state: "hexcasting:impetus/redstone{energized:false,facing:west,powered:false}", nbt: {id: "hexcasting:impetus/redstone", media: 0L}},
+        {pos: [1, 1, 1], state: "minecraft:air"},
+        {pos: [1, 1, 2], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {angles: [B; 5B, 5B, 5B, 5B, 5B, 2B, 4B, 5B, 4B], start_dir: 2b}}},
+        {pos: [2, 1, 0], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {}}},
+        {pos: [2, 1, 1], state: "minecraft:air"},
+        {pos: [2, 1, 2], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {angles: [B; 4B, 5B, 4B, 4B, 0B], start_dir: 2b}}},
+        {pos: [3, 1, 0], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {}}},
+        {pos: [3, 1, 1], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {}}},
+        {pos: [3, 1, 2], state: "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}", nbt: {id: "hexcasting:slate", pattern: {angles: [B; 0B, 2B, 0B, 1B, 0B, 1B, 0B, 1B, 0B, 1B, 0B, 1B, 0B], start_dir: 1b}}},
+        {pos: [0, 2, 0], state: "minecraft:air"},
+        {pos: [0, 2, 1], state: "minecraft:air"},
+        {pos: [0, 2, 2], state: "minecraft:air"},
+        {pos: [1, 2, 0], state: "minecraft:oak_button{face:floor,facing:south,powered:false}"},
+        {pos: [1, 2, 1], state: "minecraft:air"},
+        {pos: [1, 2, 2], state: "minecraft:air"},
+        {pos: [2, 2, 0], state: "minecraft:air"},
+        {pos: [2, 2, 1], state: "minecraft:air"},
+        {pos: [2, 2, 2], state: "minecraft:air"},
+        {pos: [3, 2, 0], state: "minecraft:air"},
+        {pos: [3, 2, 1], state: "minecraft:air"},
+        {pos: [3, 2, 2], state: "minecraft:air"}
+    ],
+    entities: [
+        {blockPos: [1, 1, 1], pos: [1.5d, 1.03125d, 1.5d], nbt: {Air: 300s, Facing: 1b, FallDistance: 0.0f, Fire: -1s, Fixed: 0b, Invisible: 0b, Invulnerable: 0b, Item: {Count: 1b, id: "hexcasting:focus"}, ItemDropChance: 1.0f, ItemRotation: 0b, Motion: [0.0d, 0.0d, 0.0d], OnGround: 0b, PortalCooldown: 0, Pos: [-27.5d, -57.96875d, 23.5d], Rotation: [0.0f, -90.0f], TileX: -28, TileY: -58, TileZ: 23, UUID: [I; 592504119, -1181726181, -2090381057, -1630375401], id: "minecraft:item_frame"}}
+    ],
+    palette: [
+        "minecraft:polished_andesite",
+        "minecraft:air",
+        "minecraft:oak_button{face:floor,facing:south,powered:false}",
+        "hexcasting:slate{energized:false,face:floor,facing:north,waterlogged:false}",
+        "hexcasting:impetus/redstone{energized:false,facing:west,powered:false}"
+    ]
+}

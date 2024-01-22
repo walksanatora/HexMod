@@ -30,6 +30,9 @@
     "fabric-datagen": [
       "at.petrak.hexcasting.fabric.datagen.HexFabricDataGenerators"
     ],
+    "fabric-gametest": [
+      "at.petrak.hexcasting.common.test.HexGameTest"
+    ],
     "cardinal-components": [
       "at.petrak.hexcasting.fabric.cc.HexCardinalComponents"
     ],
