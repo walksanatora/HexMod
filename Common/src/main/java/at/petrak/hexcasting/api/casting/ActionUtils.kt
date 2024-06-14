@@ -24,8 +24,9 @@ import kotlin.math.roundToLong
 
 fun List<Iota>.getDouble(idx: Int, argc: Int = 0): Double {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        return x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        return y.get().double
     } else {
         // TODO: I'm not sure this calculation is correct
         throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "double")
@@ -34,8 +35,9 @@ fun List<Iota>.getDouble(idx: Int, argc: Int = 0): Double {
 
 fun List<Iota>.getEntity(idx: Int, argc: Int = 0): Entity {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is EntityIota) {
-        return x.entity
+    val y = x.into(EntityIota.TYPE)
+    if (y.isPresent) {
+        return y.get().entity
     } else {
         throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "entity")
     }
@@ -43,8 +45,9 @@ fun List<Iota>.getEntity(idx: Int, argc: Int = 0): Entity {
 
 fun List<Iota>.getList(idx: Int, argc: Int = 0): SpellList {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is ListIota) {
-        return x.list
+    val y = x.into(ListIota.TYPE)
+    if (y.isPresent) {
+        return y.get().list
     } else {
         throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "list")
     }
@@ -52,8 +55,9 @@ fun List<Iota>.getList(idx: Int, argc: Int = 0): SpellList {
 
 fun List<Iota>.getPattern(idx: Int, argc: Int = 0): HexPattern {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is PatternIota) {
-        return x.pattern
+    val y = x.into(PatternIota.TYPE)
+    if (y.isPresent) {
+        return y.get().pattern
     } else {
         throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "pattern")
     }
@@ -61,8 +65,9 @@ fun List<Iota>.getPattern(idx: Int, argc: Int = 0): HexPattern {
 
 fun List<Iota>.getVec3(idx: Int, argc: Int = 0): Vec3 {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is Vec3Iota) {
-        return x.vec3
+    val y = x.into(Vec3Iota.TYPE)
+    if (y.isPresent) {
+        return y.get().vec3
     } else {
         throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "vector")
     }
@@ -70,8 +75,9 @@ fun List<Iota>.getVec3(idx: Int, argc: Int = 0): Vec3 {
 
 fun List<Iota>.getBool(idx: Int, argc: Int = 0): Boolean {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is BooleanIota) {
-        return x.bool
+    val y = x.into(BooleanIota.TYPE)
+    if (y.isPresent) {
+        return y.get().bool
     } else {
         throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "boolean")
     }
@@ -81,8 +87,9 @@ fun List<Iota>.getBool(idx: Int, argc: Int = 0): Boolean {
 
 fun List<Iota>.getItemEntity(idx: Int, argc: Int = 0): ItemEntity {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is EntityIota) {
-        val e = x.entity
+    val y = x.into(EntityIota.TYPE)
+    if (y.isPresent) {
+        val e = y.get().entity
         if (e is ItemEntity)
             return e
     }
@@ -91,8 +98,9 @@ fun List<Iota>.getItemEntity(idx: Int, argc: Int = 0): ItemEntity {
 
 fun List<Iota>.getPlayer(idx: Int, argc: Int = 0): ServerPlayer {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is EntityIota) {
-        val e = x.entity
+    val y = x.into(EntityIota.TYPE)
+    if (y.isPresent) {
+        val e = y.get().entity
         if (e is ServerPlayer)
             return e
     }
@@ -101,8 +109,9 @@ fun List<Iota>.getPlayer(idx: Int, argc: Int = 0): ServerPlayer {
 
 fun List<Iota>.getMob(idx: Int, argc: Int = 0): Mob {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is EntityIota) {
-        val e = x.entity
+    val y = x.into(EntityIota.TYPE)
+    if (y.isPresent) {
+        val e = y.get().entity
         if (e is Mob)
             return e
     }
@@ -111,8 +120,9 @@ fun List<Iota>.getMob(idx: Int, argc: Int = 0): Mob {
 
 fun List<Iota>.getLivingEntityButNotArmorStand(idx: Int, argc: Int = 0): LivingEntity {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is EntityIota) {
-        val e = x.entity
+    val y = x.into(EntityIota.TYPE)
+    if (y.isPresent) {
+        val e = y.get().entity
         if (e is LivingEntity && e !is ArmorStand)
             return e
     }
@@ -121,8 +131,9 @@ fun List<Iota>.getLivingEntityButNotArmorStand(idx: Int, argc: Int = 0): LivingE
 
 fun List<Iota>.getPositiveDouble(idx: Int, argc: Int = 0): Double {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         if (0 <= double) {
             return double
         }
@@ -132,8 +143,9 @@ fun List<Iota>.getPositiveDouble(idx: Int, argc: Int = 0): Double {
 
 fun List<Iota>.getPositiveDoubleUnder(idx: Int, max: Double, argc: Int = 0): Double {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         if (0.0 <= double && double < max) {
             return double
         }
@@ -143,8 +155,9 @@ fun List<Iota>.getPositiveDoubleUnder(idx: Int, max: Double, argc: Int = 0): Dou
 
 fun List<Iota>.getPositiveDoubleUnderInclusive(idx: Int, max: Double, argc: Int = 0): Double {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         if (double in 0.0..max) {
             return double
         }
@@ -154,8 +167,9 @@ fun List<Iota>.getPositiveDoubleUnderInclusive(idx: Int, max: Double, argc: Int 
 
 fun List<Iota>.getDoubleBetween(idx: Int, min: Double, max: Double, argc: Int = 0): Double {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         if (double in min..max) {
             return double
         }
@@ -165,8 +179,9 @@ fun List<Iota>.getDoubleBetween(idx: Int, min: Double, max: Double, argc: Int = 
 
 fun List<Iota>.getInt(idx: Int, argc: Int = 0): Int {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         val rounded = double.roundToInt()
         if (abs(double - rounded) <= DoubleIota.TOLERANCE) {
             return rounded
@@ -177,8 +192,9 @@ fun List<Iota>.getInt(idx: Int, argc: Int = 0): Int {
 
 fun List<Iota>.getLong(idx: Int, argc: Int = 0): Long {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         val rounded = double.roundToLong()
         if (abs(double - rounded) <= DoubleIota.TOLERANCE) {
             return rounded
@@ -189,8 +205,9 @@ fun List<Iota>.getLong(idx: Int, argc: Int = 0): Long {
 
 fun List<Iota>.getPositiveInt(idx: Int, argc: Int = 0): Int {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         val rounded = double.roundToInt()
         if (abs(double - rounded) <= DoubleIota.TOLERANCE && rounded >= 0) {
             return rounded
@@ -201,8 +218,9 @@ fun List<Iota>.getPositiveInt(idx: Int, argc: Int = 0): Int {
 
 fun List<Iota>.getPositiveIntUnder(idx: Int, max: Int, argc: Int = 0): Int {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         val rounded = double.roundToInt()
         if (abs(double - rounded) <= DoubleIota.TOLERANCE && rounded in 0 until max) {
             return rounded
@@ -213,8 +231,9 @@ fun List<Iota>.getPositiveIntUnder(idx: Int, max: Int, argc: Int = 0): Int {
 
 fun List<Iota>.getPositiveIntUnderInclusive(idx: Int, max: Int, argc: Int = 0): Int {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         val rounded = double.roundToInt()
         if (abs(double - rounded) <= DoubleIota.TOLERANCE && rounded in 0..max) {
             return rounded
@@ -225,8 +244,9 @@ fun List<Iota>.getPositiveIntUnderInclusive(idx: Int, max: Int, argc: Int = 0): 
 
 fun List<Iota>.getIntBetween(idx: Int, min: Int, max: Int, argc: Int = 0): Int {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is DoubleIota) {
-        val double = x.double
+    val y = x.into(DoubleIota.TYPE)
+    if (y.isPresent) {
+        val double = y.get().double
         val rounded = double.roundToInt()
         if (abs(double - rounded) <= DoubleIota.TOLERANCE && rounded in min..max) {
             return rounded
@@ -237,8 +257,9 @@ fun List<Iota>.getIntBetween(idx: Int, min: Int, max: Int, argc: Int = 0): Int {
 
 fun List<Iota>.getBlockPos(idx: Int, argc: Int = 0): BlockPos {
     val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
-    if (x is Vec3Iota) {
-        return BlockPos.containing(x.vec3)
+    val y = x.into(Vec3Iota.TYPE)
+    if (y.isPresent) {
+        return BlockPos.containing(y.get().vec3)
     }
 
     throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "vector")

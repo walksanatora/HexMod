@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 public abstract class Iota {
     @NotNull
@@ -32,6 +33,20 @@ public abstract class Iota {
 
     public @NotNull IotaType<?> getType() {
         return this.type;
+    }
+
+    /**
+     * fallible cast into another iota type
+     * cast should always succeed if type.equals(getType())
+     * @param type the IotaType to cast into
+     * @return an optional which contains this iota cast to the type, or empty
+     */
+    public <I extends Iota> @NotNull Optional<I> into(@NotNull IotaType<I> type) {
+        if (type.equals(getType())) {
+            return (Optional<I>) Optional.of(this);
+        } else {
+            return Optional.empty();
+        }
     }
 
     abstract public boolean isTruthy();
